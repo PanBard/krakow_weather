@@ -1,21 +1,35 @@
-import {Composition} from 'remotion';
-import {HelloWorld} from './HelloWorld';
-import {Logo} from './HelloWorld/Logo';
-
+import { Composition } from 'remotion';
+import { IsItRaining } from './components';
+import { VIDEO_CONFIG } from './config';
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
-	return (
-		<>
+	const{
+		FPS,
+		VIDEO_ID,
+		VIDEO_WIDTH,
+		VIDEO_HEIGHT,
+		VIDEO_DURATION_IN_FRAMES
+	} = VIDEO_CONFIG
+
+
+
+
+
+	return (			
+		<>    
 			<Composition
 				// You can take the "id" to render a video:
 				// npx remotion render src/index.ts <id> out/video.mp4
-				id="HelloWorld"
-				component={HelloWorld}
-				durationInFrames={150}
-				fps={30}
-				width={1920}
-				height={1080}
+				fps={FPS}
+				id={VIDEO_ID}
+				width={VIDEO_WIDTH}
+				height={VIDEO_HEIGHT}
+				component={IsItRaining}
+				durationInFrames={VIDEO_DURATION_IN_FRAMES}
+				
+				
+				
 				// You can override these props for each render:
 				// https://www.remotion.dev/docs/parametrized-rendering
 				defaultProps={{
@@ -24,14 +38,7 @@ export const RemotionRoot: React.FC = () => {
 				}}
 			/>
 			{/* Mount any React component to make it show up in the sidebar and work on it individually! */}
-			<Composition
-				id="OnlyLogo"
-				component={Logo}
-				durationInFrames={150}
-				fps={30}
-				width={1920}
-				height={1080}
-			/>
+			
 		</>
 	);
 };
