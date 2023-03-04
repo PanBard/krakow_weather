@@ -36,6 +36,9 @@ export const COMPOSITION_CONFIG = {
     COLOR: {
       REGULAR: '#FFFFFF',
       ACCENT: '#7D2A39'
+    },
+    FONT: {
+      SANS: '"Comic Sans MS", cursive, sans-serif'
     }
   }
 }
