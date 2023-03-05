@@ -1,6 +1,8 @@
 import { Composition } from 'remotion';
 import { IsItRaining } from './components';
 import { VIDEO_CONFIG } from './config';
+import './reset.css';
+
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {

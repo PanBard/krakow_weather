@@ -1,6 +1,7 @@
 export const pl_PL = {
   intro: {
-    question: 'Czy pada dzisiaj w Krakowie?'
+    question1: 'Czy pada dzisiaj w',
+    question2: 'Krakowie?'
   },
   common: {
     celsjus: 'st. C'
