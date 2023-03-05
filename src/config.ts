@@ -16,7 +16,7 @@ export const VIDEO_CONFIG = {  //taka sama nazwa klucza jka zmiennej to dajemy t
 
 export const APP_CONFIG = {
   CITY: 'Rzeszów',
-  DISCORD_URL: '',
+  DISCORD_URL: 'https://discord.gg/pzWVw5z4',
   WEATHER_API_KEY: ''
 
 }

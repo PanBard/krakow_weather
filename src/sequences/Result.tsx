@@ -1,5 +1,5 @@
 import React from "react"
-import { VideoBackground, Cloud, Typography, VideoTitleBox, WeatherBaseImage } from "../components"
+import { VideoBackground, Cloud, Typography, WeatherBaseImage } from "../components"
 import { COMPOSITION_CONFIG} from '../config'
 import { WeatherState } from "../common"
 import { useTranslations, useWeatherStateName } from "../hooks"

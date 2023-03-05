@@ -1,6 +1,6 @@
 import { useTranslations } from "../hooks";
 import {Sequence, useVideoConfig} from 'remotion'
-import { Intro, Result} from "../sequences";
+import { Intro, Result, Outro} from "../sequences";
 import { Fragment } from "react"; //eliminuje błąd z przymusem 1 dziecka  w returnie
 import { WeatherState } from "../common";
 
@@ -31,6 +31,17 @@ export const IsItRaining = () => {
           temperature={5}
           wheatherstate={WeatherState.Raining}
           />
+        </Sequence>
+
+
+        <Sequence
+          from={7*fps}
+          durationInFrames={3*fps}
+          name="Outro"
+        >
+          
+          <Outro/>
+
         </Sequence>
 
     </Fragment>

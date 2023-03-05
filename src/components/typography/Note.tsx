@@ -7,4 +7,5 @@ color: ${COMPOSITION_CONFIG.TEXT.COLOR.REGULAR};
 font-size: ${COMPOSITION_CONFIG.TEXT.FONT_SIZE.SMALL};
 font-weight: 300;
 font-family: ${COMPOSITION_CONFIG.TEXT.FONT.SANS};
+line-height: 1.3;
 `

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Img } from "remotion";
+import { Img, useCurrentFrame, interpolate } from "remotion";
 import { useTranslations } from "../hooks";
 import { Typography } from ".";
 import { Images } from "../assets";
@@ -7,13 +7,23 @@ import { Images } from "../assets";
 
 export const TitleBox = () => {
     const T = useTranslations()
+    const frame = useCurrentFrame() //do uzywania klatek filmu
+    const opacity = interpolate(
+        frame,
+        [0,40,50],
+        [0,0,1]
+    )
+
+
 
     return(
         <Container>
 
             <TitleBoxImage src={Images.TitleBox} />
 
-            <QuestionRow>
+            <QuestionRow 
+                style={{opacity}}
+            >
                 <Typography.Title>
                     {T.intro.question1}
                 </Typography.Title>
