@@ -1,6 +1,8 @@
 import { useTranslations } from "../hooks";
 import {Sequence, useVideoConfig} from 'remotion'
-import { Intro } from "../sequences";
+import { Intro, Result} from "../sequences";
+import { Fragment } from "react"; //eliminuje błąd z przymusem 1 dziecka  w returnie
+import { WeatherState } from "../common";
 
 export const IsItRaining = () => {
 
@@ -9,14 +11,29 @@ export const IsItRaining = () => {
   const {fps} = useVideoConfig() //hook z remotion ktory mozemy wykorzystak w kazdym pliku
 
   return(
-      <Sequence
-        from={0} //od której klatki jest wyswietlane
-        durationInFrames={3*fps} //ile dokłdanie ma trwać nasz filmik
-        name = "Intro"
+    <Fragment>
+        <Sequence
+          from={0} //od której klatki jest wyswietlane
+          durationInFrames={3*fps} //ile dokłdanie ma trwać nasz filmik
+          name = "Intro"
 
-      >
-              <Intro/> {/* Intro jako dziecko Sequence wyświetli się według podanych parametrów w sequence */}
+        >
+                <Intro/> {/* Intro jako dziecko Sequence wyświetli się według podanych parametrów w sequence */}
 
-      </Sequence>
+        </Sequence>
+
+        <Sequence
+          from={3*fps}
+          durationInFrames={4*fps}
+          name="Result"
+        >
+          <Result 
+          temperature={5}
+          wheatherstate={WeatherState.Raining}
+          />
+        </Sequence>
+
+    </Fragment>
+      
   )
 }
