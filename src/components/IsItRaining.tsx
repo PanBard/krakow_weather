@@ -4,7 +4,17 @@ import { Intro, Result, Outro} from "../sequences";
 import { Fragment } from "react"; //eliminuje błąd z przymusem 1 dziecka  w returnie
 import { WeatherState } from "../common";
 
-export const IsItRaining = () => {
+
+type IsItRainingProps = {
+  weatherState: WeatherState,
+  temperature: number,
+}
+
+
+export const IsItRaining: React.FunctionComponent<IsItRainingProps> = ({
+  weatherState,
+  temperature,
+}) => {
 
 
   const T = useTranslations()
@@ -28,8 +38,8 @@ export const IsItRaining = () => {
           name="Result"
         >
           <Result 
-          temperature={123}
-          wheatherstate={WeatherState.Thunderstorm}
+          temperature={temperature}
+          wheatherstate={weatherState}
           />
         </Sequence>
 
