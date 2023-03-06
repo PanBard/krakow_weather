@@ -1,9 +1,10 @@
 import React from "react"
-import { VideoBackground, Cloud, Typography, WeatherBaseImage, RainCloud, SunBehindTheCloud ,Sun, SnowCloud } from "../components"
+import { VideoBackground,  Typography, WeatherBaseImage, Weather } from "../components"
 import { COMPOSITION_CONFIG} from '../config'
 import { WeatherState } from "../common"
 import { useTranslations, useWeatherStateName } from "../hooks"
 import styled from "styled-components"
+import { useCurrentFrame, interpolate } from "remotion"
 
 
 
@@ -24,55 +25,30 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     const {TEXT, VIDEO} = COMPOSITION_CONFIG
     const T = useTranslations()
     const stateName = useWeatherStateName(wheatherstate)
-
+    const frame = useCurrentFrame()
+    const animatedOpacity = interpolate(
+        frame,
+        [0,30],
+        [0,1]
+    )
 
     return(
         <VideoBackground backgroundColor={VIDEO.BACKGROUND_COLOR}>
+            <Weather weatherState={wheatherstate}/>
             <Container>
             <WeatherBaseImage weatherstate={wheatherstate}/>
-            <TextContainer>
-                <Typography.Heading>
+            <TextContainer style={{opacity: animatedOpacity}}>
+                <HeadingWithShadow>
                     {temperature} {T.common.celsjus}
-                </Typography.Heading>
+                </HeadingWithShadow>
 
-                <Typography.Heading>
+                <HeadingWithShadow>
                     {stateName}
-                </Typography.Heading>
+                </HeadingWithShadow>
             </TextContainer>
             </Container>
 
-            <SnowCloud
-                rotate={15}
-                scale={0.6}
-                translateX={500}
-                translateY={-940}
-            />
-            <SnowCloud
-                rotate={-15}
-                scale={0.6}
-                translateX={-430}
-                translateY={-980}
-            />
-            <SunBehindTheCloud
-                // withThunder
-                translateX={0}
-                translateY={-600}
-            />
-            <SnowCloud   
-                scale={0.8}
-                translateX={-530}
-                translateY={-300}
-            />
-            <SnowCloud
-                scale={0.7}
-                translateX={-580}
-                translateY={500}
-            />
-            <SnowCloud
-                scale={0.7}
-                translateX={560}
-                translateY={300}
-            />
+            
 
       </VideoBackground>
     )

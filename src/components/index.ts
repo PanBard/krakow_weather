@@ -12,4 +12,4 @@ export { RainCloud } from './RainCloud'
 export { SnowCloud } from './SnowCloud'
 export { SunBehindTheCloud } from './SunBehindTheCloud'
 export { Sun } from './Sun'
-
+export {Weather} from './Weather'
