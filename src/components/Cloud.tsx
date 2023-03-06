@@ -1,6 +1,6 @@
-import React from "react"
-import { Img } from "remotion"
-import styled from "styled-components"
+import React, { Children } from "react"
+import { Img, interpolate, useCurrentFrame } from "remotion"
+import styled, { AnyStyledComponent } from "styled-components"
 import { Images } from "../assets"
 
 type CloudProps = {
@@ -8,6 +8,7 @@ type CloudProps = {
   translateY ?: number,
   scale ?: number,
   rotate ?: number,
+  children?:any,
 }
 
 export const  Cloud: React.FunctionComponent<CloudProps> = ({
@@ -15,14 +16,40 @@ export const  Cloud: React.FunctionComponent<CloudProps> = ({
   translateY = 0,
   scale = 1,
   rotate = 0,
-}) => (
-  <BaseCloud src={Images.Cloud} style={{
-    transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`
-  }}/>  //podajemy źródło zdjecia dla komponentu, bo src='' nie jest z css
-)
+  children
+}) => {
+  
+    
+  const frame = useCurrentFrame()
+
+  const animatedtranslateX = interpolate(
+      frame,
+      [0, 120],
+      [translateX, translateX - 50]
+  )
+  
+  
+  return(
+  <Container
+  style={{
+    transform: `translateX(${animatedtranslateX}px) translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`
+  }}
+  >
+
+      <BaseCloud src={Images.Cloud}/> 
+
+      {children}
+  </Container>
+
+)}
 
 const BaseCloud = styled(Img)`   // stała tylko do stylizowania chmury
 width: '457px';
 height: '295px';
-position: absolute;
+
 ` 
+
+
+const Container = styled.div`
+    position: absolute;
+`
