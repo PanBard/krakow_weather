@@ -29,7 +29,7 @@ export const IsItRaining = () => {
         >
           <Result 
           temperature={10}
-          wheatherstate={WeatherState.Raining}
+          wheatherstate={WeatherState.Cloudy}
           />
         </Sequence>
 

@@ -24,7 +24,7 @@ export const  Cloud: React.FunctionComponent<CloudProps> = ({
 
   const animatedtranslateX = interpolate(
       frame,
-      [0, 120],
+      [0, 120*scale], // dzieki temu mamy rozne szybkosci w zaleznosci od skali
       [translateX, translateX - 50]
   )
   

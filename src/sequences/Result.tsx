@@ -1,9 +1,11 @@
 import React from "react"
-import { VideoBackground, Cloud, Typography, WeatherBaseImage, RainCloud } from "../components"
+import { VideoBackground, Cloud, Typography, WeatherBaseImage, RainCloud, SunBehindTheCloud ,Sun, SnowCloud } from "../components"
 import { COMPOSITION_CONFIG} from '../config'
 import { WeatherState } from "../common"
 import { useTranslations, useWeatherStateName } from "../hooks"
 import styled from "styled-components"
+
+
 
 type ResultProps = {
     wheatherstate: WeatherState,
@@ -39,33 +41,34 @@ export const Result: React.FunctionComponent<ResultProps> = ({
             </TextContainer>
             </Container>
 
-            <RainCloud
+            <SnowCloud
                 rotate={15}
                 scale={0.6}
                 translateX={500}
                 translateY={-940}
             />
-            <RainCloud
+            <SnowCloud
                 rotate={-15}
                 scale={0.6}
                 translateX={-430}
                 translateY={-980}
             />
-            <RainCloud
+            <SunBehindTheCloud
+                // withThunder
                 translateX={0}
                 translateY={-600}
             />
-            <RainCloud   
+            <SnowCloud   
                 scale={0.8}
                 translateX={-530}
                 translateY={-300}
             />
-            <RainCloud
+            <SnowCloud
                 scale={0.7}
                 translateX={-580}
                 translateY={500}
             />
-            <RainCloud
+            <SnowCloud
                 scale={0.7}
                 translateX={560}
                 translateY={300}

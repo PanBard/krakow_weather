@@ -2,12 +2,14 @@ import React, { Fragment } from 'react'
 import { Loop } from 'remotion'
 import { Cloud } from './Cloud'
 import { Rain } from './Rain'
+import { Thunder } from './Thunder'
 
 type CloudProps = {
     translateX ?: number,
     translateY ?: number,
     scale ?: number,
     rotate ?: number,
+    withThunder ?: boolean,
   }
   
 
@@ -16,6 +18,7 @@ export const RainCloud: React.FunctionComponent<CloudProps> = ({
     translateY = 0,
     scale = 1,
     rotate = 0,
+    withThunder
 }) => {
     const rainPosition = [
         {
@@ -87,6 +90,20 @@ export const RainCloud: React.FunctionComponent<CloudProps> = ({
 
             </Loop>
             
+            {withThunder && (
+            
+            <Loop
+            durationInFrames={60}
+            times={Infinity}
+            >
+                <React.Fragment>
+                <Thunder bottom={-150} left={200} /> 
+                <Thunder bottom={-120} left={100} scale={0.7}/> 
+            </React.Fragment>    
+            </Loop>  
+            
+
+            )}
            
         </Cloud>
     )
