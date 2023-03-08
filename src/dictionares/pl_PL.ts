@@ -1,7 +1,9 @@
+import { APP_CONFIG } from "../config"
+
 export const pl_PL = {
   intro: {
     question1: 'Czy pada dzisiaj w',
-    question2: 'Krakowie?'
+    question2: `${APP_CONFIG.CITY}?`
   },
   common: {
     celsjus: 'st. C'

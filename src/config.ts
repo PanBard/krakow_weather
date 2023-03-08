@@ -15,11 +15,13 @@ export const VIDEO_CONFIG = {  //taka sama nazwa klucza jka zmiennej to dajemy t
 }
 
 export const APP_CONFIG = {
-  CITY: 'Rzeszów',
+  CITY: 'Kraków',
   DISCORD_URL: 'https://discord.gg/pzWVw5z4',
-  WEATHER_API_KEY: ''
+  WEATHER_API_KEY: process.env.OPEN_WEATHER_API_KEY
 
 }
+
+// console.log(APP_CONFIG)
 
 export const COMPOSITION_CONFIG = {
   VIDEO: {
