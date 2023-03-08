@@ -1,9 +1,10 @@
 import { useTranslations } from "../hooks";
-import {Sequence, useVideoConfig} from 'remotion'
+import {Sequence, useVideoConfig, Audio} from 'remotion'
 import { Intro, Result, Outro} from "../sequences";
 import { Fragment } from "react"; //eliminuje błąd z przymusem 1 dziecka  w returnie
 import { WeatherState } from "../common";
 
+import audio_source from '../assets/music.mp3'
 
 type IsItRainingProps = {
   weatherState: WeatherState,
@@ -53,6 +54,8 @@ export const IsItRaining: React.FunctionComponent<IsItRainingProps> = ({
           <Outro/>
 
         </Sequence>
+
+          <Audio src={audio_source} />
 
     </Fragment>
       
