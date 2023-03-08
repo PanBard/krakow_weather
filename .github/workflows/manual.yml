@@ -11,7 +11,6 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install ffmpeg
       - run: npm i
-      - run: node getMusicFromTiktok.js
       - name: create env file
         run: |
             touch .env
